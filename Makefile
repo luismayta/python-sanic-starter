@@ -14,6 +14,7 @@ GRIP = $(shell) $(SCRIPT_DIR)/grip.sh
 PYENV = $(shell) $(SCRIPT_DIR)/pyenv.sh
 SETUP = $(shell) $(SCRIPT_DIR)/setup.sh
 INSTALL = $(shell) $(SCRIPT_DIR)/install.sh
+PRE_INSTALL = $(shell) $(SCRIPT_DIR)/pre_install.sh
 LINTCODE = $(shell) $(SCRIPT_DIR)/lintcode.sh
 TEST = $(shell) $(SCRIPT_DIR)/test.sh
 RUNSERVER = $(shell) $(SCRIPT_DIR)/runserver.sh
@@ -35,6 +36,10 @@ grip:
 
 install:
 	$(INSTALL)
+
+
+pre_install:
+	$(PRE_INSTALL)
 
 
 lintcode:
