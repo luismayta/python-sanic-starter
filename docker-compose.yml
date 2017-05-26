@@ -13,16 +13,11 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=sanic
-      - POSTGRES_TEST_DB=sanic_test
-      - POSTGRES_TEST_USER=postgres
-      - POSTGRES_TEST_PASSWORD=postgres
     env_file: .env
     volumes:
       - pgvolume:/var/lib/postgresql/data #using the declared volume
-    ports:
-      - "5432:5432"
 
-  # Django web application
+  # sanic web application
   web:
     restart: always
     image: python:3.6.1
@@ -39,7 +34,6 @@ services:
       - ./:/app
     environment: &environment
       - DB_DEFAULT_URL=postgres://postgres:postgres@db:5432/sanic
-      - DB_TEST_URL=postgres://postgres:postgres@db:5432/sanic_test
       - C_FORCE_ROOT=True
       - SITE_NAME=sanic
       - IS_SECURE=True
